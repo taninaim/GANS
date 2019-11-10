@@ -55,6 +55,8 @@ def sample_images(generator, image_grid_rows=4, image_grid_columns=4):
             axs[i,j].axis('off')
             count += 1
 
+    plt.show()
+
 def train(iterations, batch_size, sample_interval):
     (X_train, _), (_, _) = mnist.load_data()
 
