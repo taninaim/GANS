@@ -62,11 +62,12 @@ def train(iterations, batch_size, sample_intervals):
             supervised_losses.append(d_loss_supervised)
             iteration_checkpoints.append(iteration + 1)
 
-            print(
-                "%d [D loss supervised: %.4f, acc.: %.2f%%] [D loss " +
-                " unsupervised: %.4f] [G loss: %f]"
-                % (iteration + 1, d_loss_supervised, 100*accuracy,
-                (d_loss_unsupervised, g_loss))
+            print("{} [D loss supervised: {}, acc.: {}%] [D loss unsupervised: {}] [G loss: {}]".format(
+                iteration + 1, 
+                d_loss_supervised, 
+                100 * accuracy,
+                d_loss_unsupervised, 
+                g_loss)
             )
 
 if __name__ == '__main__':
