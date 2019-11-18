@@ -6,8 +6,7 @@ class Dataset:
     def __init__(self, num_labeled):
         self.num_labeled = num_labeled
         
-        (self.x_train, self.y_train), 
-            (self.x_test, self.y_test) = mnist.load_data()
+        (self.x_train, self.y_train), (self.x_test, self.y_test) = mnist.load_data()
 
         def preprocess_imgs(x):
             x = (x.astype(np.float32) - 127.5) / 127.5

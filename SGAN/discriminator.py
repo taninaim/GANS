@@ -49,7 +49,7 @@ def build_discriminator_supervised(discriminator_net):
 
 def build_discriminator_unsupervised(discriminator_net):
     model = Sequential()
-    model.add(discriminator.net)
+    model.add(discriminator_net)
 
     def predict(x):
         prediction = 1.0 - (1.0 / 
