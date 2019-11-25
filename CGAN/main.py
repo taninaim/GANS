@@ -1,3 +1,4 @@
+#%%
 import matplotlib.pyplot as plt 
 import numpy as np 
 
@@ -10,7 +11,7 @@ from keras.layers import (
 from keras.layers.advanced_activations import LeakyReLU
 from keras.models import Model, Sequential
 from keras.optimizers import Adam 
-
+#%%
 img_rows = 28
 img_cols = 28
 channels = 1
@@ -19,6 +20,7 @@ img_shape = (img_rows, img_cols, channels)
 z_dim = 100
 num_classes = 10
 
+#%%
 def build_generator(z_dim):
     model = Sequential()
 
@@ -113,7 +115,7 @@ def build_cgan(generator, discriminator):
     classification = discriminator([img, label])
     model = Model([z, label], classification)
     return model 
-
+#%%
 discriminator = build_cgan_discriminator(img_shape)
 discriminator.compile(
     loss='binary_crossentropy',
@@ -131,7 +133,7 @@ cgan.compile(loss='binary_crossentropy', optimizer=Adam())
 
 accuracies = []
 losses = []
-
+#%%
 def train(iterations, batch_size, sample_interval):
     (X_train, y_train), (_, _) = mnist.load_data()
 
@@ -186,8 +188,15 @@ def sample_images(image_grid_rows=2, image_grid_columns=5):
             axs[i, j].set_title('Digit: %d' % labels[cnt])
             cnt += 1
 
+    plt.show()
+
+#%%
 iterations = 12000
 batch_size = 32
-sample_interval = 10
+sample_interval = 1000
 
 train(iterations, batch_size, sample_interval)
+
+
+
+# %%
